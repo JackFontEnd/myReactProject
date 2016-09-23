@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="http://js.touzibaomu.com/css/vipCoupon/app/vip-ticket.css">
+    <script src="http://js.touzibaomu.com/js/jquery-1.11.3.min.js"></script>
+    <script src="http://id.touzibaomu.net/match/Public/js/sdk.source.js?v=3.2"></script>
+    <script src="http://js.touzibaomu.com/js/zepto.min.js"></script>
+    <script src="http://js.touzibaomu.com/js/layout.js"></script>
+    <script src="http://js.touzibaomu.com/js/utils.js"></script>
+    <script src="http://js.touzibaomu.com/js/jbase64.js"></script>
+    <script type="text/javascript">
+
+        XRKClientAPI.do(function (api) {
+            //更改标题
+            api.setTitleText('推荐');
+            //删除使用记录
+            api.removeRightMenu();
+        });
+
+        $(function () {
+             function getMobile(callback) {
+                $.ajax({
+                    type: "get",
+                    url: "http://id.touzibaomu.net/UserCenter/interface/usercenter/mobile.php",
+                    data: {
+                        active: "getusermobile",
+                        auth: $.getUrlParam("auth")
+                    },
+                    cache: false,
+                    async: true,
+                    success: function (response) {
+                        var mobile = "";
+                        if("success" === response.status) {
+                            mobile = response.data.mobile
+                        }
+                        callback(mobile);
+                    }
+                })
+            };
+            function getRecommendGroupId(param) {
+                $.ajax({
+                    type: "get",
+                    url: "http://auth.touzibaomu.net/api/getRecommendActGroupId",
+                    cache: false,
+                    async: true,
+                    success: function (response) {
+                        var groupId = "",
+                                href = "http://auth.touzibaomu.net/H5Coupon/Index/index?introducer=" + BASE64.encoder(param.mobile) + "&groupId=" + groupId;
+                        if("success" === response.status) {
+                            groupId = response.data.group_id
+                        }
+                        XRKClientAPI.do(function (api) {
+                            api.doShare(
+                                    "",
+                                    href,
+                                    "我在用大策略的VIP特权功能，轻松抓住牛股买卖点",
+                                    "我在用大策略的VIP特权功能，轻松抓住牛股买卖点，现在和你分享此特权。"
+                            );
+                        });
+                    }
+                })
+            }
+            $(".btn").click(function () {
+                getMobile(function(mobile){
+                    getRecommendGroupId({
+                        mobile: mobile
+                    });
+
+                });
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="share-wrap">
+    <img src="http://js.touzibaomu.com/images/vipCoupon/share.jpg">
+    <a class="btn" href="javascript:void(0);">分享给朋友</a>
+    <p>*绑定手机号用户分享有效。</p>
+</div>
+</body>
+
+</html>

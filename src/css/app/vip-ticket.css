@@ -1,0 +1,359 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Microsoft YaHei;
+}
+
+*::-webkit-scrollbar {
+    width: 0px;
+}
+
+:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+i,
+em {
+    font-style: normal;
+    font-weight: normal;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.c-red {
+    color: #f31227;
+}
+
+.c-yellow {
+    color: #f3a305;
+}
+
+.c-orange {
+    color: #ff4700;
+}
+
+.bg-gray {
+    background: #e6e8eb;
+}
+
+body {
+    font-size: 16px;
+}
+
+.nav {
+    height: 2rem;
+    background: #f7f7f7;
+}
+
+.nav>ul>li {
+    float: left;
+    margin-right: 0.5rem;
+}
+
+.nav>ul>li>a {
+    display: block;
+    line-height: 2rem;
+    padding: 0 1rem;
+    font-size: 0.8rem;
+}
+
+.nav>ul>li.active>a {
+    color: #ff4700;
+    border-bottom: 1px solid #ff4700;
+}
+
+.content {
+    padding: 1rem;
+}
+
+.coupon-box {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+}
+
+.coupon-box .text {
+    width: 70%;
+    height: 2.42rem;
+    padding: 0 0.5rem;
+    margin-right: 2%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.coupon-box .btn {
+    display: block;
+    width: 28%;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    border-radius: 3px;
+    background: #f3a305;
+    color: #fff;
+    text-align: center;
+}
+
+.get-vip a {
+    padding: 0.1rem 0.4rem;
+    border: 1px solid #818181;
+    border-radius: 3px;
+    background: #d2d2d2;
+    font-size: 1rem;
+}
+
+.ticket-list {
+    margin-top: 1rem;
+}
+
+.ticket-list li {
+    margin-bottom: 1rem;
+}
+
+.ticket-list li .item {
+    position: relative;
+}
+
+.ticket-list li .item.ticket-cb::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0.2rem;
+    right: 0.4rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: url(/images/vipCoupon/cb.png) 0 0 no-repeat;
+    background-size: 100% auto;
+}
+
+.ticket-list li .item.ticket-cb.active::before {
+    background-position: 0 -1.65rem;
+}
+
+.ticket-list li .item .inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 27.5%;
+    width: 73%;
+}
+
+.ticket-list li .item .inner table {
+    width: 100%;
+    height: 100%;
+}
+
+.ticket-list li .item .inner .inner-l {
+    width: 100%;
+    padding: 0 0.8rem;
+    text-align: center;
+}
+
+.ticket-list li .item .inner .inner-l .day {
+    font-size: 1.3rem;
+}
+
+.ticket-list li .item .inner .inner-r {
+    padding: 1rem 1rem 0 0;
+    font-size: 0.5rem;
+}
+
+.ticket-list li .item .seal {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 53%;
+    width: auto;
+    height: 90%;
+}
+
+.no-ticket {
+    text-align: center;
+}
+
+.no-ticket h6 {
+    margin: 3rem 0;
+    color: #999;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+.no-ticket .get-vip a {
+    background: none;
+}
+
+.rule a {
+    color: #ff4700;
+}
+
+.rule a::after {
+    content: "";
+    position: relative;
+    top: -0.1rem;
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-left: 0.2rem;
+    border-top: 2px solid #ff4700;
+    border-right: 2px solid #ff4700;
+    vertical-align: middle;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.foot-mb {
+    margin-bottom: 2.6rem;
+}
+
+.foot-btn {
+    height: 2.6rem;
+    line-height: 2.6rem;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    background: #f3a305;
+}
+
+.fixed-b {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.fixed-b .rule {
+    margin: 1rem;
+}
+
+.fixed-b .rule a {
+    color: #333;
+}
+
+.fixed-b .rule a::after {
+    border-top-color: #333;
+    border-right-color: #333;
+}
+
+.manual-wrap {
+    margin: 2rem 1rem 0 1rem;
+}
+
+.manual-wrap dl {
+    padding-left: 1rem;
+    margin-bottom: 1.1rem;
+}
+
+.manual-wrap dl dt {
+    position: relative;
+    color: #ff4700;
+    margin-bottom: 0.5rem;
+}
+
+.manual-wrap dl dt::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -0.8rem;
+    top: 0.4rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #ff4700;
+}
+
+.manual-wrap dl dd {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.mt {
+    margin-top: 0.5rem;
+}
+
+.manual-wrap .tips {
+    margin: 2rem 0;
+    padding: 1rem;
+    font-size: 0.8rem;
+    border: 1px dashed #999;
+    border-radius: 5px;
+    color: #666;
+}
+
+.tips .c-orange {
+    font-size: 1rem;
+}
+
+.tips .s {
+    font-size: 0.6rem;
+}
+
+.share-wrap {
+    text-align: center;
+}
+
+.share-wrap .btn {
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+    margin: 3rem 0;
+    border-radius: 3px;
+    background: #f3a305;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+}
+
+.share-wrap p {
+    font-size: 0.8em;
+}
+
+@media screen and (max-width: 414px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,408 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Microsoft YaHei;
+}
+
+*::-webkit-scrollbar {
+    width: 0px;
+}
+
+:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+i,
+em {
+    font-style: normal;
+    font-weight: normal;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.c-red {
+    color: #f31227;
+}
+
+.c-yellow {
+    color: #ffe431;
+}
+
+body {
+    font-size: 16px;
+    background: #c5303e;
+}
+
+.unclaimed {
+    position: relative;
+    text-align: center;
+    background: url(/images/mobile-top-bg.jpg) center top no-repeat;
+    background-size: 100%;
+}
+
+.unclaimed input {
+    display: block;
+    width: 76%;
+    height: 2.7rem;
+    margin: auto;
+    padding: 0 10px;
+    border: 1px solid #c0381d;
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn {
+    display: block;
+    width: 76%;
+    height: 2.7rem;
+    line-height: 2.7rem;
+    margin: 1rem auto;
+    border-radius: 5px;
+    background: #ffa20f;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn:active {
+    opacity: 0.8;
+}
+
+.manual {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.manual a {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 10%;
+    width: 35%;
+}
+
+.manual-wrap {
+    margin: 0 1rem;
+}
+
+.manual-wrap .title {
+    position: relative;
+    margin-bottom: 1.1rem;
+}
+
+.manual-wrap .title a {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 10%;
+}
+
+.manual-wrap dl {
+    padding-left: 1rem;
+    margin-bottom: 1.1rem;
+}
+
+.manual-wrap dl dt {
+    position: relative;
+    color: #ffe431;
+    margin-bottom: 0.5rem;
+}
+
+.manual-wrap dl dt::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -0.8rem;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #ffe431;
+}
+
+.manual-wrap dl dd {
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+.mt {
+    margin-top: 0.5rem;
+}
+
+.manual-wrap .tips {
+    margin: 2rem 0;
+    padding: 1rem;
+    font-size: 0.8rem;
+    border: 1px dashed #ff7f31;
+    border-radius: 5px;
+    background: #a51724;
+    color: #fff;
+}
+
+.tips .c-yellow {
+    font-size: 1rem;
+}
+
+.tips .s {
+    font-size: 0.6rem;
+}
+
+.shade {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.pop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80%;
+    height: 10rem;
+    padding: 1.5rem;
+    margin: auto;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.pop .text {
+    margin-top: 1.4rem;
+    font-size: 1.1rem;
+}
+
+.pop .pop-btn {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1.5rem;
+    display: inline-block;
+    width: 6rem;
+    height: 2.1rem;
+    line-height: 2.1rem;
+    margin: auto;
+    border-radius: 5px;
+    background: #ffa20f;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.hide {
+    display: none;
+}
+
+.claimed-wrap {
+    background: url(/images/mobile-top-bg.jpg) center top no-repeat;
+    background-size: 100%;
+}
+
+.claimed-wrap .claimed-tips {
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.claimed-wrap .claimed-agree {
+    color: #fff;
+    text-align: center;
+    background: #c62f40;
+    font-size: 0.8rem;
+}
+
+.claimed-wrap .claimed-agree a {
+    color: #fff;
+}
+
+.claimed-wrap .claimed-agree .cb-input {
+    display: none;
+}
+
+.claimed-wrap .claimed-agree .cb-input + label {
+    display: inline-block;
+    width: 18px;
+    height: 16px;
+    background: url(/images/mobile-cb.png) 0 0 no-repeat;
+    background-size: 100%;
+    vertical-align: text-bottom;
+}
+
+.claimed-wrap .claimed-agree .cb-input:checked + label {
+    background-position: 0 -16px;
+}
+
+.claimed-wrap .claimed-list {
+    margin: 1rem 0.6rem;
+    padding: 0 0.8rem 0.8rem 0.8rem;
+    border: 1px dashed #ff7f31;
+    border-radius: 5px;
+    background: #a51724;
+    color: #fff;
+}
+
+.index-agree {
+    padding-bottom: 1em;
+}
+
+.claimed-wrap .claimed-list ul li {
+    display: table;
+    width: 100%;
+    border-top: 1px solid #c9682d;
+}
+
+.claimed-wrap .claimed-list ul li > div {
+    display: table-cell;
+    padding: 0.5rem 0;
+    font-size: 0.7rem;
+    vertical-align: middle;
+}
+
+.claimed-wrap .claimed-list ul li > div.phone {
+    text-align: left
+}
+
+.claimed-wrap .claimed-list ul li > div.time {
+    text-align: center
+}
+
+.claimed-wrap .claimed-list ul li > div.state {
+    text-align: right;
+}
+
+.claimed-wrap .claimed-list ul li > div.head img {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.claimed-wrap .claimed-list ul li > div.nick{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    width: 10em;
+    display: inline-block;
+    line-height: 2.7em;
+    margin-left: 5px;
+}
+
+.claimed-wrap .claimed-list ul li > div.state em {
+    margin-left: 0.2rem;
+    padding: 0 0.2rem;
+    border: 1px solid #efd93f;
+    border-radius: 3px;
+    color: #efd93f;
+    font-size: 0.5rem;
+}
+
+.ticket li {
+    margin-bottom: 1rem;
+}
+
+.ticket li .item {
+    position: relative;
+}
+
+.ticket li .item .inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 31%;
+    width: 63%;
+}
+
+.ticket li .item .inner table {
+    width: 100%;
+    height: 100%;
+}
+
+.ticket li .item .inner .inner-l {
+    width: 100%;
+    padding: 0 0.8rem;
+    text-align: center;
+}
+
+.ticket li .item .inner .inner-l .day {
+    font-size: 1.3rem;
+}
+
+.download_btn {
+    background: url("/images/mobile-intro-bg.png");
+    background-size: contain;
+    text-align: center;
+}
+
+.download_btn span{
+    background: #e62b3e;
+    color: white;
+    width: 80%;
+    height: 2.5em;
+    display: inline-block;
+    line-height: 2.5em;
+    border-radius: 8px;
+    font-size: 1.2em;
+}
+
+.ticket li .item .inner .inner-r {
+    padding: 1rem 1rem 0 0;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 414px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="http://js.touzibaomu.com/css/vipCoupon/app/vip-ticket.css">
+
+    <script src="http://js.touzibaomu.com/js/jquery-1.11.3.min.js"></script>
+    <script src="http://js.touzibaomu.com/js/jsviews-v1.0.0-alpha.min.js"></script>
+    <script src="http://js.touzibaomu.com/js/layout.js"></script>
+    <script src="http://js.touzibaomu.com/js/utils.js"></script>
+    <script src="http://id.touzibaomu.net/match/Public/js/sdk.source.js?v=3.2"></script>
+    <script src="http://js.touzibaomu.com/js/zepto.min.js"></script>
+    <script>
+        var resultModeul = {
+            init: function () {
+                this.rootHost = "http://auth.touzibaomu.net/";
+                this.getMyCouponUrl = "api/myCoupon";
+                this.auth = $.getUrlParam("auth");
+            },
+            render: function () {
+                var that = this;
+                that.init();
+                that._getMyCoupon(that);
+                that._showHeader();
+            },
+            _showHeader: function () {
+                XRKClientAPI.do(function (api) {
+                    //更改标题
+                    api.setTitleText('使用记录');
+                    //删除使用记录
+                    api.removeRightMenu();
+                });
+            },
+            _getMyCoupon: function (that) {
+                $.ajax({
+                    type: "get",
+                    url: that.rootHost + that.getMyCouponUrl,
+                    data: {
+                        auth: that.auth
+                    },
+                    cache: false,
+                    async: true,
+                    success: function (response) {
+                        var renderData = [],
+                                data;
+
+                        if (response.data.dataList.length) {
+                            for (var i = 0; i < response.data.dataList.length; i++) {
+                                data = response.data.dataList[i];
+                                //状态：1.未使用 2.已使用 3.已过期
+                                if (1 != data.status) {
+                                    renderData.push({
+                                        vipLevel: data.vip,
+                                        freeDay: data.did,
+                                        name: data.act_name,
+                                        endDay: data.end_time.split(" ")[0],
+                                        vip: data.vip,
+                                        status: data.status
+                                    });
+                                }
+                            }
+                            $(".ticket-list ul").html($.templates("#couponList-tmpl").render(renderData));
+                        } else {
+                            $("#couponContent").hide();
+                            $("#noCouponContent").show();
+                        }
+                        if (!renderData.length) {
+                            $("#noRecord").show();
+                        }
+                    }
+                });
+            }
+        }
+        $(function () {
+            resultModeul.init();
+            resultModeul.render();
+        })
+    </script>
+
+</head>
+
+<body class="bg-gray">
+<div class="nav">
+    <ul class="clearfix">
+        <li class="active"><a href="javascript:void(0);">体验券</a></li>
+    </ul>
+</div>
+<div class="content">
+    <div class="ticket-list">
+        <ul>
+
+        </ul>
+        <p id="noRecord" style="display:none;">无使用记录</p>
+    </div>
+</div>
+<script type="text/x-jsrender" id="couponList-tmpl">
+        <li>
+            <div class="item">
+                <img src="http://js.touzibaomu.com/images/vipCoupon/bg-vip{{:vipLevel}}-used.png">
+                <div class="inner clearfix">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="inner-l fl">
+                                    <p class="day c-red"><b>{{: freeDay}}天</b></p>
+                                    <p>{{: name}}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="inner-r fr">
+                                    <p>有效期至</p>
+                                    <p class="c-red">{{: endDay}}</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {{if status == 2}}
+                <img class="seal" src="http://js.touzibaomu.com/images/vipCoupon/seal-used.png">
+                {{else status == 3 }}
+                <img class="seal" src="http://js.touzibaomu.com/images/vipCoupon/seal-expire.png">
+                {{/if}}
+            </div>
+        </li>
+</script>
+</body>
+
+</html>

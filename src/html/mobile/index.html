@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+     <link rel="stylesheet" type="text/css" href="/src/css/mobile/vip-ticket.css">
+
+    <script src="http://js.touzibaomu.com/js/jquery-1.11.3.min.js"></script>
+    <script src="http://js.touzibaomu.com/js/layout.js"></script>
+    <script src="http://js.touzibaomu.com/js/utils.js"></script>
+    <script src="http://js.touzibaomu.com/js/jweixin-1.0.0.js"></script>
+    <script src="http://js.touzibaomu.com/js/jssdk.js"></script>
+    <script src="http://js.touzibaomu.com/js/jbase64.js"></script>
+    <script src="http://js.touzibaomu.com/js/jquery.cookie.js"></script>
+    <script src="/build/react.js"></script>
+    <script src="/build/react-dom.js"></script>
+
+    <script src="/src/js/mobile/index.js" type="text/babel"></script>
+
+</head>
+
+<body>
+<img src="http://js.touzibaomu.com/images/vipCoupon/mobile-top.jpg">
+<div class="unclaimed">
+    <input id="phone" type="tel" placeholder="请输入手机号"/>
+    <a class="btn" href="javascript:void(0);">领取体验券</a>
+    <div class="claimed-wrap">
+        <div class="claimed-agree index-agree">
+            <input class="cb-input" id="cb-input" type="checkbox" checked="">
+            <label class="cb-label" for="cb-input"></label>
+            我已阅读并同意大策略的活动说明
+        </div>
+    </div>
+    <div class="manual">
+        <img src="http://js.touzibaomu.com/images/vipCoupon/mobile-manual.png">
+    </div>
+</div>
+<div class="shade tel-error hide">
+    <div class="pop">
+        <p class="text">手机号填写错误哦！</p>
+        <div>
+            <a class="pop-btn" href="javascript:void(0);">知道了</a>
+        </div>
+    </div>
+</div>
+
+<div class="shade noCheck-error hide">
+    <div class="pop">
+        <p class="text">请先阅读大策略的活动说明！</p>
+        <div>
+            <a class="pop-btn" href="javascript:void(0);">知道了</a>
+        </div>
+    </div>
+</div>
+
+<img src="http://js.touzibaomu.com/images/vipCoupon/mobile-intro-1.jpg">
+<img src="http://js.touzibaomu.com/images/vipCoupon/mobile-intro-2.jpg">
+<img src="http://js.touzibaomu.com/images/vipCoupon/mobile-intro-3.jpg">
+<img src="http://js.touzibaomu.com/images/vipCoupon/mobile-intro-4.jpg">
+<img src="http://js.touzibaomu.com/images/vipCoupon/mobile-intro-5.jpg">
+<div class="download_btn">
+    <span>下载大策略</span>
+</div>
+<div id="content"></div>
+<img src="http://js.touzibaomu.com/images/vipCoupon/mobile-intro-bottom.png">
+
+<script type="text/babel">
+    var CommentBox = React.createClass({
+
+        rawMarkup: function() {
+            var md = new Remarkable();
+            var rawMarkup = md.render(this.props.author.toString());
+            return { __html: rawMarkup };
+        },
+
+        render: function() {
+            var md = new Remarkable();
+
+            alert(2);
+            return (
+                    <div className="commentBox">
+                        <h1>Comments</h1>
+                    </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+        <CommentBox />,
+        document.getElementById('content')
+    );
+</script>
+</body>
+
+</html>
